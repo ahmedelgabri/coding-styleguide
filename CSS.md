@@ -41,9 +41,9 @@ Utilize preprocessors power & always break down your code into separate files. B
 
 `main.scss`
 
-    ```scss
-    @import '_component';
-    ```
+```scss
+@import '_component';
+```
 
 ### Comments
 
@@ -83,11 +83,11 @@ Component name:
 
 Which the simple form of comments used for describing hacks, techniques in the code itself.
 
-    ```scss
-    .class {
-        overflow: hidden; // Clearing floats
-    }
-    ```
+```scss
+.class {
+    overflow: hidden; // Clearing floats
+}
+```
 
 ### Whitespace
 
