@@ -18,18 +18,22 @@
 .selector {
 
 }
+```
 
 or
 
+```scss
 // SECTION COMMENT
 ------------------------------
 
 .selector {
 
 }
+```
 
 or
 
+```scss
 //=============================
 // BLOCK COMMENT
 //=============================
@@ -74,4 +78,4 @@ or
 .selector {
     // code
 }
-```scss
+```

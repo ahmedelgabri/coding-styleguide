@@ -1,7 +1,2 @@
-# CSS Styleguide
+# Coding Styleguide
 ---
-
-## CSS
-
-
-## Sass
