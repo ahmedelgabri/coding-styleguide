@@ -56,6 +56,7 @@ Comments are for you & your team, make sure in your build process all the commen
 There are 4 comment format used.
 
 **Block Comment**
+
 Mainly used at the top of the file with the name _Always in uppercase_ & a description of the file. Also can be used within a single file between variations.
 
     //=========================================================================
@@ -67,19 +68,21 @@ Mainly used at the top of the file with the name _Always in uppercase_ & a descr
 
 
 **Section Comment**
+
 Used to differentiate between different sections in one file, with only the title of the sub-section _always in uppercase_
 
     // SUB SECTION
     // ------------------------------------------------------------------------
 
 
-** Documentation Comment**
+**Documentation Comment**
+
 Mainly used to document a component & it follows a specific format.
 
 [check here](https://github.com/nopr/sassdown)
 Component name:
 
-** Inline Comment **
+**Inline Comment**
 
 Which the simple form of comments used for describing hacks, techniques in the code itself.
 
