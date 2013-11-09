@@ -111,44 +111,44 @@ Component name:
 
 Which the simple form of comments used for describing hacks, techniques in the code itself.
 
-    ```scss
-    .class {
-        overflow: hidden; // Clearing floats
-    }
-    ```
+```scss
+.class {
+    overflow: hidden; // Clearing floats
+}
+```
 
 ### Whitespace
 
 1 space between the selector & the opening curly bracket and between the property & value.
 
-    ```scss
-    .selector {
-        property: value;
-    }
-    ```
+```scss
+.selector {
+    property: value;
+}
+```
 
 1 Carriage return between a comment & a rule.
 
-    ```scss
-    // SECTION COMMENT
-    ------------------------------
+```scss
+// SECTION COMMENT
+------------------------------
 
-    .selector {
+.selector {
 
-    }
-    ```
+}
+```
 
 or
 
-    ```scss
-    //=============================
-    // BLOCK COMMENT
-    //=============================
+```scss
+//=============================
+// BLOCK COMMENT
+//=============================
 
-    .selector {
+.selector {
 
-    }
-    ```
+}
+```
 
 3 Carriage returns between each rule & between documentation comment & a rule.
 
