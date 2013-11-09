@@ -3,7 +3,8 @@
 
 ## Table of contents
 
-* [Basics](#basics)
+* [Summary](#summary)
+* [Terminology](#terminology)
 * [Style](#style)
     * [file organization](#file-organization)
     * [Comments](#comments)
@@ -26,13 +27,21 @@
 
 ---
 
-## Basics
+## Summary
 
-A ruleset
+1- Use the BEM (Block Element Modifier) methodology
+2- Find common patterns in your code and abstract them so they can become reusable components.
+3- Think about how you can write more clean, efficient and modular components
+4- Be critical of your code and the code of others. Try and learn/recognize 'code smells' and refactor them.
+
+## Terminology
+
+A CSS rule
 
 ```css
-.selector {
-    property: value; <=== this is a declaration
+.selector { // Declaration block
+    |- Declaration -|
+    property: value;
 }
 ```
 
@@ -40,24 +49,25 @@ A ruleset
 ## Style
 
 * Use 4 spaces for indentation.
+* Avoid using IDs always use Classes, cause they are reusable & have lower specificity.
 * Multi-line.
-* Hyphens not underscores. _(Also check [BEM](#bem))_
-* Always include the final semi-colon in a ruleset
+* Hyphens or Underscores. _(check [BEM](#bem))_
+* Always include the final semi-colon in a ruleset.
 * Always try to abstract patterns as much as possible to write less code & make your code easier to maintain & more reusable.
-* Avoid using IDs & use classes, cause classes are reusable.
-* Avoid over qualified selectors `div.something {}` it should be `.something {}`.
+* Avoid over qualified selectors like this `div.something {}` it should be `.something {}`.
 * Avoid chaining classes `.box.red` & use multiple classes extension on the element instead _More in OOCSS & BEM_
 * If you are not supporting IE7 always use `box-sizing: border-box`.
 * Don't use `!important`, use the cascade as much as you can.
 
 ### File organization
 
-Utilize preprocessors power & always break down your code into separate files. But each of your component in a separate file & import them in your main file.
+Utilize the power of preprocessors & always break down your code into separate files & import them in your main file.
 
 `main.scss`
 
 ```scss
-@import '_component';
+@import '_component1';
+@import '_component2';
 ```
 
 ### Comments
@@ -101,44 +111,44 @@ Component name:
 
 Which the simple form of comments used for describing hacks, techniques in the code itself.
 
-```scss
-.class {
-    overflow: hidden; // Clearing floats
-}
-```
+    ```scss
+    .class {
+        overflow: hidden; // Clearing floats
+    }
+    ```
 
 ### Whitespace
 
 1 space between the selector & the opening curly bracket and between the property & value.
 
-```scss
-.selector {
-    property: value;
-}
-```
+    ```scss
+    .selector {
+        property: value;
+    }
+    ```
 
 1 Carriage return between a comment & a rule.
 
-```scss
-// SECTION COMMENT
-------------------------------
+    ```scss
+    // SECTION COMMENT
+    ------------------------------
 
-.selector {
+    .selector {
 
-}
-```
+    }
+    ```
 
 or
 
-```scss
-//=============================
-// BLOCK COMMENT
-//=============================
+    ```scss
+    //=============================
+    // BLOCK COMMENT
+    //=============================
 
-.selector {
+    .selector {
 
-}
-```
+    }
+    ```
 
 3 Carriage returns between each rule & between documentation comment & a rule.
 
@@ -224,6 +234,10 @@ I always try to keep my CSS flat _less specificity_ & rely more on the cascade. 
 
 ## Concepts
 
+### Classes vs IDs
+
+*Avoid using IDs & use classes*
+
 ---
 
 ## Writing CSS
@@ -238,10 +252,10 @@ I always try to keep my CSS flat _less specificity_ & rely more on the cascade. 
 
 ### JS Hooks
 
-*Never use CSS classes as JavaScript hooks.* For JavaScript Hooks always prefix your classes with `.js-` prefix.
+**_Never use CSS classes as JavaScript hooks._** For JavaScript Hooks always prefix your classes with `.js-` prefix.
 
 ```html
 <button class="js-modal"></button>
 ```
 
-_Note: I'm thinking about changing this & use `data-` attributes instead, for the time being stick to prefixed classes_
+**Note**: I'm thinking about changing this & use `data-` attributes instead, for the time being stick to prefixed classes
