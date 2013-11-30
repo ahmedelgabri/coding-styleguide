@@ -104,3 +104,5 @@ Here is a bare bone HTML document
 </body>
 </html>
 ```
+
+_Thanks to Mark McDonnell [HTML Styleguide](https://github.com/Integralist/Style-Guides/blob/master/HTML%20Style%20Guide.md)_

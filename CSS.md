@@ -203,7 +203,7 @@ or
 
 ### Sass (SCSS)
 
-I always try to keep my CSS flat _less specificity_ & rely more on the cascade. But if you need to nest CSS, maximum nest 2 levels _exceptions for Psuedo elements/classes_
+I always try to keep my CSS flat _less specificity_ & rely more on the cascade. But if you need to nest CSS, maximum nest 2 levels _exceptions for Pseudo elements/classes_
 
 ```scss
 .component {
