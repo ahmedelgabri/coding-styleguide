@@ -238,12 +238,14 @@ I always try to keep my CSS flat _less specificity_ & rely more on the cascade. 
 
 *Avoid using IDs & use classes*
 
+WIP
+
 ---
 
 ## Writing CSS
 
 ### Naming conventions
-
+WIP
 
 ### Units
 * `rem` for font-sizing
