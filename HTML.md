@@ -27,10 +27,10 @@
 - Use ARIA roles and labels when appropriate
 - Use HTML5 form controls when applicable to trigger the right keyboard on mobile (`url`, `email`, etc...)
 - Organize your `<head>` section as follow:
-    1- `<title>` tag
-    2- `<meta>` elements
-    3- Style sheets
-    4- Scripts like `Modernizr` or `HTML5 shiv` _(All other scripts should be added before the closing `</body>` tag)_
+    * `<title>` tag
+    * `<meta>` elements
+    * Style sheets
+    * Scripts like `Modernizr` or `HTML5 shiv` _(All other scripts should be added before the closing `</body>` tag)_
 - for `<script>` tags & style sheets don't use `type` attribute.
 
     ```html
