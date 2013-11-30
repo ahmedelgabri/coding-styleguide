@@ -37,7 +37,8 @@
     <!-- Wrong -->
     <script type="text/javascript" src="script.js"></script>
     <link type="text/css" rel="stylesheet" href="main.css">
-    Right
+
+    <!-- Right -->
     <link rel="stylesheet" href="main.css">
     <script src="script.js"></script>
     ```
@@ -47,19 +48,23 @@
 
 Use Conditional comments hack to serve IE a separate style sheet _(this will be achieved by Sass, you will only write your CSS once & Sass will create 2 separate files for you)_
 
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="css/main.css">
-    <!--<![endif]-->
+```html
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="css/main.css">
+<!--<![endif]-->
 
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/ie.css">
-    <![endif]-->
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/ie.css">
+<![endif]-->
+```
 
 Don't use this:
 
-    <!--[if IE 8]><html class="ie8" dir="ltr" lang="en"><![endif]-->
-    <!--[if IE 9]><html class="ie9" dir="ltr" lang="en"><![endif]-->
-    <!--[if gt IE 9]><!--> <html dir="ltr" lang="en"> <!--<![endif]-->
+```html
+<!--[if IE 8]><html class="ie8" dir="ltr" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9" dir="ltr" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--> <html dir="ltr" lang="en"> <!--<![endif]-->
+```
 
 Cause it'll add more specificity to your CSS selectors & if you wanted to remove IE support you will have to go through all your CSS & clean it up from `.ie-` classes.
 
@@ -75,23 +80,27 @@ Use `dir` & `lang` attributes on the `<html>` tag like this. `<html dir="rtl" la
 
 Here is a bare bone HTML document
 
-    <!doctype html>
-    <html lang="en"> or <html lang="ar" dir="rtl"> for RTL
-    <head>
-        <title>Page title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="css/main.css">
-        <!--<![endif]-->
-        <!--[if lte IE 8]>
-            <link rel="stylesheet" href="css/ie.css">
-        <![endif]-->
-        <script src="modernizr.js"></script>
-        <link rel="author" type="text/plain" href="humans.txt">
-    </head>
-    <body>
+```html
+<!doctype html>
+<html lang="en">
+<!-- for RTL -->
+<html lang="ar" dir="rtl">
+<head>
+    <title>Page title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/main.css">
+    <!--<![endif]-->
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/ie.css">
+    <![endif]-->
+    <script src="modernizr.js"></script>
+    <link rel="author" type="text/plain" href="humans.txt">
+</head>
+<body>
 
-        <script src="script.js"></script>
-    </body>
-    </html>
+    <script src="script.js"></script>
+</body>
+</html>
+```
