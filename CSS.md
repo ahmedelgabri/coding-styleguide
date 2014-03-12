@@ -9,13 +9,13 @@
     * [file organization](#file-organization)
     * [Comments](#comments)
     * [Whitespace](#whitespace)
-    * [Sass (SCSS)](#sass-scss)
 * [Concepts](#concepts)
     * [OOCSS](#oocss)
     * [BEM](#bem)
     * [Source Order](#source-order)
     * [IDs vs classes](#IDs-vs-classes)
 * [Writing CSS](#writing-css)
+    * [Sass (SCSS)](#sass-scss)
     * [Selectors](#selectors)
     * [Naming conventions](#naming-conventions)
     * [Units](#units)
@@ -84,12 +84,24 @@ There are 4 comment format used.
 
 Mainly used at the top of the file with the name _Always in uppercase_ & a description of the file. Also can be used within a single file between variations.
 
-    //=========================================================================
-    // NAME OF THE COMPONENT
-    //
-    // Description:
-    // Lorem ipsum dolor sit amet
-    //=========================================================================
+    /*=========================================================================
+     NAME OF THE COMPONENT
+
+     Description:
+     Lorem ipsum dolor sit amet
+
+     MARKUP:
+        <ul class="component component--modifier">
+            <li class="component__child"> Something </li>
+            <li class="component__child"> Something </li>
+        </ul>
+
+     Classes:
+        .component - brief description
+        .component--modifier - brief description
+        .component__child - brief description
+
+    =========================================================================*?
 
 
 **Section Comment**
@@ -141,23 +153,9 @@ Which the simple form of comments used for describing hacks, techniques in the c
 or
 
 ```scss
-//=============================
-// BLOCK COMMENT
-//=============================
-
-.selector {
-
-}
-```
-
-3 Carriage returns between each rule & between documentation comment & a rule.
-
-```scss
-/*
-    DOCUMENTATION COMMENT
-*/
-
-
+/*=============================
+ BLOCK COMMENT
+=============================*/
 
 .selector {
 
@@ -181,9 +179,9 @@ or
 5 Carriage returns between each section (i.e. buttons main styles & primary buttons styling).
 
 ```scss
-//=================
-// BUTTONS
-//=================
+/*=================
+ BUTTONS
+=================*/
 
 .selector {
     // code
@@ -201,9 +199,32 @@ or
 }
 ```
 
+---
+
+## Concepts
+
+### OOCSS
+WIP
+
+### BEM
+WIP
+
+### Source Order
+WIP
+
+### Classes vs IDs
+
+*Avoid using IDs & use classes*
+
+WIP
+
+---
+
+## Writing CSS
+
 ### Sass (SCSS)
 
-I always try to keep my CSS flat _less specificity_ & rely more on the cascade. But if you need to nest CSS, maximum nest 2 levels _exceptions for Pseudo elements/classes_
+I always try to keep my CSS flat _less specificity_ & relay more on the cascade. But if you need to nest CSS, maximum nest 2 levels _exceptions for Pseudo elements/classes_
 
 ```scss
 .component {
@@ -229,20 +250,8 @@ I always try to keep my CSS flat _less specificity_ & rely more on the cascade. 
     display: block;
 }
 ```
-
----
-
-## Concepts
-
-### Classes vs IDs
-
-*Avoid using IDs & use classes*
-
+### Selectors
 WIP
-
----
-
-## Writing CSS
 
 ### Naming conventions
 WIP
@@ -251,6 +260,12 @@ WIP
 * `rem` for font-sizing
 * `em` for margin & padding. _especially vertical spacing if you want to keep a vertical rhythm_
 * `%` for widths
+
+### Shorthand
+WIP
+
+### Components
+WIP
 
 ### JS Hooks
 
@@ -261,3 +276,11 @@ WIP
 ```
 
 **Note**: I'm thinking about changing this & use `data-` attributes instead, for the time being stick to prefixed classes
+
+### Layout
+WIP
+
+---
+
+##RTL
+WIP
