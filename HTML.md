@@ -26,22 +26,17 @@
 - HTML syntax not xHTML `<img>` instead of `<img/>`.
 - Use ARIA roles and labels when appropriate
 - Use HTML5 form controls when applicable to trigger the right keyboard on mobile (`url`, `email`, etc...)
-- Organize your `<head>` section as follow:
-    1. `<title>` tag
-    2. `<meta>` elements
-    3. Style sheets
-    4. Scripts like `Modernizr` or `HTML5 shiv` _(All other scripts should be added before the closing `</body>` tag)_
 - for `<script>` tags & style sheets don't use `type` attribute.
 
-    ```html
-    <!-- Wrong -->
-    <script type="text/javascript" src="script.js"></script>
-    <link type="text/css" rel="stylesheet" href="main.css">
+```html
+<!-- Wrong -->
+<script type="text/javascript" src="script.js"></script>
+<link type="text/css" rel="stylesheet" href="main.css">
 
-    <!-- Right -->
-    <link rel="stylesheet" href="main.css">
-    <script src="script.js"></script>
-    ```
+<!-- Right -->
+<link rel="stylesheet" href="main.css">
+<script src="script.js"></script>
+```
 
 
 ### Internet Explorer
@@ -86,17 +81,17 @@ Here is a bare bone HTML document
 <!-- for RTL -->
 <html lang="ar" dir="rtl">
 <head>
-    <title>Page title</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="css/main.css">
     <!--<![endif]-->
     <!--[if lte IE 8]>
         <link rel="stylesheet" href="css/ie.css">
     <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="modernizr.js"></script>
     <link rel="author" type="text/plain" href="humans.txt">
+    <title>Page title</title>
 </head>
 <body>
 
