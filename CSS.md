@@ -15,13 +15,10 @@
     * [IDs vs classes](#IDs-vs-classes)
 * [Writing CSS](#writing-css)
     * [Sass (SCSS)](#sass-scss)
-    <!-- * [Selectors](#selectors) -->
     * [Units](#units)
     * [Shorthand](#shorthand)
-    <!-- * [Components](#components) -->
     * [JS Hooks](#js-hooks)
     * [Layout](#layout)
-<!-- * [RTL](#rtl) -->
 
 ---
 
@@ -287,8 +284,6 @@ I always try to keep my CSS flat _less specificity_ & relay more on the cascade.
 }
 ```
 
-<!-- ### Selectors -->
-
 ### Units
 I prefer to use relative units as much as possible cause it' more flexible
 
@@ -348,7 +343,3 @@ Yes, more lines but more explicit, understandable & maintainable.
 
 ### Layout
 **General rule:** Layouts would be handled by the grid a component shouldn't have a `width` set on it.
-
----
-
-<!-- ##RTL -->
