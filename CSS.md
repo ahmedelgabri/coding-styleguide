@@ -208,14 +208,11 @@ Some posts that will help understand BEM:
 - Don't leave anything for the chance, make sure your selectors are specific as they need to be. so instead of doing `ul li` use class `.nav-item` on the `<li>` & target it with just `.nav-item`
 
 #### The BEM naming convention I'm using:
- | Name                     | Class                           |
- | -------------------------| --------------------------------|
- | Block _Componenet_ class | `.<prefix>-component`           |
- | Element _Child_ class    | `.<prefix>-component__child`    |
- | Modifier class           | `.<prefix>-component--modifier` |
-
-
-
+| Name                     | Class                           |
+| -------------------------| --------------------------------|
+| Block _Componenet_ class | `.<prefix>-component`           |
+| Element _Child_ class    | `.<prefix>-component__child`    |
+| Modifier class           | `.<prefix>-component--modifier` |
 
 
 To learn more about the `<prefix>` read [Global scope, Namespacing & CSS](https://medium.com/p/681bda44c43e).
