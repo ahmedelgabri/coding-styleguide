@@ -10,29 +10,27 @@
     * [Comments](#comments)
     * [Whitespace](#whitespace)
 * [Concepts](#concepts)
-    * [OOCSS](#oocss)
-    * [BEM](#bem)
+    * [BEM](#bem)_(OOCSS)_
     * [Source Order](#source-order)
     * [IDs vs classes](#IDs-vs-classes)
 * [Writing CSS](#writing-css)
     * [Sass (SCSS)](#sass-scss)
-    * [Selectors](#selectors)
-    * [Naming conventions](#naming-conventions)
+    <!-- * [Selectors](#selectors) -->
     * [Units](#units)
     * [Shorthand](#shorthand)
-    * [Components](#components)
+    <!-- * [Components](#components) -->
     * [JS Hooks](#js-hooks)
     * [Layout](#layout)
-* [RTL](#rtl)
+<!-- * [RTL](#rtl) -->
 
 ---
 
 ## Summary
 
-1- Use the BEM (Block Element Modifier) methodology
-2- Find common patterns in your code and abstract them so they can become reusable components.
-3- Think about how you can write more clean, efficient and modular components
-4- Be critical of your code and the code of others. Try and learn/recognize 'code smells' and refactor them.
+1. Use the BEM (Block Element Modifier) methodology
+2. Find common patterns in your code and abstract them so they can become reusable components.
+3. Think about how you can write more clean, efficient and modular components
+4. Be critical of your code and the code of others. Try and learn/recognize 'code smells' and refactor them.
 
 ## Terminology
 
@@ -80,7 +78,7 @@ Comments are for you & your team, make sure in your build process all the commen
 
 There are 4 comment format used.
 
-**Block Comment**
+**Block/Section Comment**
 
 Mainly used at the top of the file with the name _Always in uppercase_ & a description of the file. Also can be used within a single file between variations.
 
@@ -104,20 +102,12 @@ Mainly used at the top of the file with the name _Always in uppercase_ & a descr
     =========================================================================*?
 
 
-**Section Comment**
+**Sub-section Comment**
 
 Used to differentiate between different sections in one file, with only the title of the sub-section _always in uppercase_
 
     // SUB SECTION
     // ------------------------------------------------------------------------
-
-
-**Documentation Comment**
-
-Mainly used to document a component & it follows a specific format.
-
-[check here](https://github.com/nopr/sassdown)
-Component name:
 
 **Inline Comment**
 
@@ -162,7 +152,7 @@ or
 }
 ```
 
-or
+3 Carriage return between each rule
 
 ```scss
 .selector {
@@ -203,20 +193,66 @@ or
 
 ## Concepts
 
-### OOCSS
-WIP
+### BEM _OOCSS_
 
-### BEM
-WIP
+BEM _Block, Element, Modifier_ is a OOCSS Methodology that helps to keep your component as modular, fixable & maintainable as possible.
+
+Some posts that will help understand BEM:
+- [About HTML semantics and front-end architecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
+- [Getting your head around BEM syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+- [Code smells in CSS](http://csswizardry.com/2012/11/code-smells-in-css/)
+- [Using more classes in your HTML](http://csswizardry.com/2012/10/a-classless-class-on-using-more-classes-in-your-html/)
+- [CSS selector intent](http://csswizardry.com/2012/07/shoot-to-kill-css-selector-intent/)
+
+#### Some points to keep in mind when using BEM
+
+- Components shouldn't be tightly coupled to their placement in the layout.
+- Avoid setting dimensions `width`, `height` on the component, a component should fit inside the space which it's placed.
+- Don't leave anything for the chance, make sure your selectors are specific as they need to be. so instead of doing `ul li` use class `.nav-item` on the `<li>` & target it with just `.nav-item`
+
+#### The BEM naming convention I'm using:
+
+Block _Componenet_ class          `.<prefix>-component`
+Element _Child_ class             `.<prefix>-component__child`
+Modifier class                    `.<prefix>-component--modifier`
+
+To learn more about the `<prefix>` read [Global scope, Namespacing & CSS](https://medium.com/p/681bda44c43e).
+
+Example:
+
+```html
+<ul class="p-nav p-nav--large">
+    <li class="p-nav__item">Menu item</li>
+    <li class="p-nav__item">Menu item</li>
+    <li class="p-nav__item">Menu item</li>
+    <li class="p-nav__item">Menu item</li>
+    <li class="p-nav__item">Menu item</li>
+    <li class="p-nav__item">Menu item</li>
+</ul>
+```
+
+You can also have block inside block
+```html
+<div class="p-article">
+    <p class="p-article__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, officia, dolores, modi dolorem rem hic vero quis animi fugiat consectetur facilis doloremque velit eum provident at enim ex quibusdam ut.</p>
+
+    <div class="p-badge">
+        <a href="#" class="p-badge__link">Some link</a>
+    </div>
+</div>
+```
 
 ### Source Order
-WIP
+Since we are using multiple files & using an OOCSS methodology to write CSS we should use the source order in our advantage & only extend what we are inheriting without overriding much of the CSS.
 
 ### Classes vs IDs
 
-*Avoid using IDs & use classes*
+There is no difference between IDs & Classes in general other than 2 things:
 
-WIP
+- IDs are unique so you can only have one ID per page which makes them not modular.
+- IDs has more specificity than Classes which can cause maintainability issues with large code bases.
+
+So there is no point actually to prefer IDs over Classes when writing CSS.
 
 ---
 
@@ -250,22 +286,55 @@ I always try to keep my CSS flat _less specificity_ & relay more on the cascade.
     display: block;
 }
 ```
-### Selectors
-WIP
 
-### Naming conventions
-WIP
+<!-- ### Selectors -->
 
 ### Units
+I prefer to use relative units as much as possible cause it' more flexible
+
 * `rem` for font-sizing
 * `em` for margin & padding. _especially vertical spacing if you want to keep a vertical rhythm_
 * `%` for widths
 
 ### Shorthand
-WIP
 
-### Components
-WIP
+Shorthands are bad for extending components, in general I don't use them & here is an example why.
+
+Let's imagine that we have a component that we want to extend it to maybe have a different background & padding.
+
+```scss
+.component {
+    background: #ccc url(../images/pattern.png) no-repeat 0 0;
+    padding: 0 .5em;
+}
+
+
+.component--green {
+    background: green;
+    padding: .5em .5em;
+}
+```
+
+**Wrong** Now this modifier class is actually overriding the main component class & not extending it. _We are overriding the pattern image & padding too_ A better way would be like this.
+
+```scss
+.component {
+    background-color: #ccc;
+    background-image: url(../images/pattern.png);
+    background-repeat: no-repeat;
+    padding-right: .5em;
+    padding-left: .5em;
+}
+
+
+.component--green {
+    background: green;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+```
+
+Yes, more lines but more explicit, understandable & maintainable.
 
 ### JS Hooks
 
@@ -278,9 +347,8 @@ WIP
 **Note**: I'm thinking about changing this & use `data-` attributes instead, for the time being stick to prefixed classes
 
 ### Layout
-WIP
+**General rule:** Layouts would be handled by the grid a component shouldn't have a `width` set on it.
 
 ---
 
-##RTL
-WIP
+<!-- ##RTL -->
