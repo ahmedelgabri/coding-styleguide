@@ -46,7 +46,7 @@ A CSS rule
 * Use 4 spaces for indentation.
 * Avoid using IDs always use Classes, cause they are reusable & have lower specificity.
 * Multi-line.
-* Hyphens or Underscores. _(check [BEM](#bem))_
+* Hyphens or Underscores. _(check [BEM](#bem-oocss))_
 * Always include the final semi-colon in a ruleset.
 * Always try to abstract patterns as much as possible to write less code & make your code easier to maintain & more reusable.
 * Avoid over qualified selectors like this `div.something {}` it should be `.something {}`.
@@ -192,7 +192,7 @@ or
 
 ### BEM _OOCSS_
 
-BEM _Block, Element, Modifier_ is a OOCSS Methodology that helps to keep your component as modular, fixable & maintainable as possible.
+BEM _Block, Element, Modifier_ is an OOCSS Methodology that helps to keep your component as modular, fixable & maintainable as possible.
 
 Some posts that will help understand BEM:
 - [About HTML semantics and front-end architecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
@@ -208,10 +208,15 @@ Some posts that will help understand BEM:
 - Don't leave anything for the chance, make sure your selectors are specific as they need to be. so instead of doing `ul li` use class `.nav-item` on the `<li>` & target it with just `.nav-item`
 
 #### The BEM naming convention I'm using:
+ | Name                     | Class                           |
+ | -------------------------| --------------------------------|
+ | Block _Componenet_ class | `.<prefix>-component`           |
+ | Element _Child_ class    | `.<prefix>-component__child`    |
+ | Modifier class           | `.<prefix>-component--modifier` |
 
-Block _Componenet_ class          `.<prefix>-component`
-Element _Child_ class             `.<prefix>-component__child`
-Modifier class                    `.<prefix>-component--modifier`
+
+
+
 
 To learn more about the `<prefix>` read [Global scope, Namespacing & CSS](https://medium.com/p/681bda44c43e).
 
