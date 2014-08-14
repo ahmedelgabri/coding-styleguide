@@ -312,7 +312,7 @@ Let's imagine that we have a component that we want to extend it to maybe have a
 }
 ```
 
-**Wrong** Now this modifier class is actually overriding the main component class & not extending it. _We are overriding the pattern image & padding too_ A better way would be like this.
+**This is not right** now this modifier class is actually overriding the main component class & not extending it. _We are overriding the pattern image & padding too_ A better way would be like this.
 
 ```scss
 .component {
@@ -325,7 +325,7 @@ Let's imagine that we have a component that we want to extend it to maybe have a
 
 
 .component--green {
-    background: green;
+    background-color: green;
     padding-top: .5em;
     padding-bottom: .5em;
 }
