@@ -215,7 +215,7 @@ Some posts that will help understand BEM:
 | Modifier class           | `.<prefix>-component--modifier` |
 
 
-To learn more about the `<prefix>` read [Global scope, Namespacing & CSS](https://medium.com/p/681bda44c43e).
+To learn more about the `<prefix>` read [Global scope, Namespacing & CSS](http://gabri.me/2013/08/global-scope-namespacing-css/).
 
 Example:
 
