@@ -262,10 +262,10 @@ So there is no point actually to prefer IDs over Classes when writing CSS.
 I always try to keep my CSS flat _less specificity_ & relay more on the cascade. But if you need to nest CSS, maximum nest 2 levels _exceptions for Pseudo elements/classes_
 
 ```scss
-.component {
+.p-component {
     display: inline;
 
-    .component__child {
+    .p-component__child {
         color: red;
 
         &:hover {
@@ -300,13 +300,13 @@ Shorthands are bad for extending components, in general I don't use them & here 
 Let's imagine that we have a component that we want to extend it to maybe have a different background & padding.
 
 ```scss
-.component {
+.p-component {
     background: #ccc url(../images/pattern.png) no-repeat 0 0;
     padding: 0 .5em;
 }
 
 
-.component--green {
+.p-component--green {
     background: green;
     padding: .5em .5em;
 }
@@ -315,7 +315,7 @@ Let's imagine that we have a component that we want to extend it to maybe have a
 **This is not right** now this modifier class is actually overriding the main component class & not extending it. _We are overriding the pattern image & padding too_ A better way would be like this.
 
 ```scss
-.component {
+.p-component {
     background-color: #ccc;
     background-image: url(../images/pattern.png);
     background-repeat: no-repeat;
@@ -324,7 +324,7 @@ Let's imagine that we have a component that we want to extend it to maybe have a
 }
 
 
-.component--green {
+.p-component--green {
     background-color: green;
     padding-top: .5em;
     padding-bottom: .5em;
