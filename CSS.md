@@ -10,7 +10,7 @@
     * [Comments](#comments)
     * [Whitespace](#whitespace)
 * [Concepts](#concepts)
-    * [BEM](#bem-oocss)_(OOCSS)_
+    * [BEM](#bem-oocss)
     * [Source Order](#source-order)
     * [IDs vs classes](#IDs-vs-classes)
 * [Writing CSS](#writing-css)
@@ -190,7 +190,7 @@ or
 
 ## Concepts
 
-### BEM _OOCSS_
+### BEM
 
 BEM _Block, Element, Modifier_ is an OOCSS Methodology that helps to keep your component as modular, fixable & maintainable as possible.
 
