@@ -7,6 +7,7 @@
 * [Style](#style)
 * [Internet Explorer](#internet-explorer)
 * [RTL](#rtl)
+* [Templating languages](#templating-languages)
 * [Example](#example)
 
 ### Terminology
@@ -20,7 +21,7 @@
 ### Style
 
 - HTML5 doctype `<!doctype html>` this works all the way to IE6.
-- 4 spaces indentation.
+- 2 spaces indentation.
 - lowercase tags/attributes. **don't** do this `<DIV></DIV>` _do_ this `<div></div>`
 - double quotations for attributes `<div class="something">` not `<div class='something'>`
 - HTML syntax not xHTML `<img>` instead of `<img/>`.
@@ -71,6 +72,36 @@ When dealing with RTL (Right to left) languages like Arabic **don't** use `text-
 Use `dir` & `lang` attributes on the `<html>` tag like this. `<html dir="rtl" lang="ar">`
 
 
+### Templating languages
+Don't indent template logic cause this will add more indentation levels and then your document will turn into a Xmas tree.
+
+**Example:** _using Django/Jinja2 templates_
+
+Indenting the logic.
+```html
+<div>
+  {% if something.somethingelse %}
+    <ul>
+      {% for name in somedata %}
+        <li> {{ name }} </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+```
+Without indenting the logic.
+```html
+<div>
+{% if something.somethingelse %}
+  <ul>
+    {% for name in somedata %}
+    <li> {{ name }} </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+</div>
+```
+
 ### Example
 
 Here is a bare bone HTML document
@@ -81,23 +112,21 @@ Here is a bare bone HTML document
 <!-- for RTL -->
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="css/main.css">
-    <!--<![endif]-->
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="css/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="modernizr.js"></script>
-    <link rel="author" type="text/plain" href="humans.txt">
-    <title>Page title</title>
+  <meta charset="UTF-8">
+  <!--[if gt IE 8]><!-->
+      <link rel="stylesheet" href="css/main.css">
+  <!--<![endif]-->
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" href="css/ie.css">
+  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="modernizr.js"></script>
+  <link rel="author" type="text/plain" href="humans.txt">
+  <title>Page title</title>
 </head>
 <body>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
-
-_Thanks to Mark McDonnell [HTML Styleguide](https://github.com/Integralist/Style-Guides/blob/master/HTML%20Style%20Guide.md)_
