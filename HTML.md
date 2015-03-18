@@ -114,10 +114,10 @@ Here is a bare bone HTML document
 <head>
   <meta charset="UTF-8">
   <!--[if gt IE 8]><!-->
-      <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css">
   <!--<![endif]-->
   <!--[if lte IE 8]>
-      <link rel="stylesheet" href="css/ie.css">
+    <link rel="stylesheet" href="css/ie.css">
   <![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="modernizr.js"></script>
