@@ -42,17 +42,8 @@
 
 ### Internet Explorer
 
-Use Conditional comments hack to serve IE a separate style sheet _(this will be achieved by Sass, you will only write your CSS once & Sass will create 2 separate files for you)_
+If you write CSS properly the amount of CSS fixes you want to do for IE8 and lower will be minimal and you can use simple solutions or even one off hacks in your CSS to fix this. If you have to support IE7 or lower, I can't help you. but I'd use conditional comments to serve a different stylesheet.
 
-```html
-<!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="css/main.css">
-<!--<![endif]-->
-
-<!--[if lte IE 8]>
-    <link rel="stylesheet" href="css/ie.css">
-<![endif]-->
-```
 
 Don't use this:
 
