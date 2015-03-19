@@ -104,12 +104,7 @@ Here is a bare bone HTML document
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="css/main.css">
-  <!--<![endif]-->
-  <!--[if lte IE 8]>
-    <link rel="stylesheet" href="css/ie.css">
-  <![endif]-->
+  <link rel="stylesheet" href="css/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="modernizr.js"></script>
   <link rel="author" type="text/plain" href="humans.txt">
