@@ -60,7 +60,11 @@ Cause it'll add more specificity to your CSS selectors & if you wanted to remove
 
 When dealing with RTL (Right to left) languages like Arabic **don't** use `text-align` & `direction` in CSS to achieve this.
 
-Use `dir` & `lang` attributes on the `<html>` tag like this. `<html dir="rtl" lang="ar">`
+Use `dir` & `lang` attributes on the `<body>` tag like this. `<body dir="rtl" lang="ar">`. 
+
+**Why `<body>` and not `<html>`?**
+
+Because Arabic users are used to use the web with scrollbars on the right too, adding these attributes on the `<html>` tag will make the browser flip the scrollbars to the left side which will be confusing.
 
 
 ### Templating languages
