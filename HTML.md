@@ -66,6 +66,8 @@ Use `dir` & `lang` attributes on the `<body>` tag like this. `<body dir="rtl" la
 
 Because Arabic users are used to use the web with scrollbars on the right too, adding these attributes on the `<html>` tag will make the browser flip the scrollbars to the left side which will be confusing.
 
+**Wrap any translated text in `<bdi>` tags.** Here is a [demo](https://jsbin.com/zezojo/edit?html,output) of why you would want to do this.
+
 
 ### Templating languages
 Don't indent template logic cause this will add more indentation levels and then your document will turn into a Xmas tree.
