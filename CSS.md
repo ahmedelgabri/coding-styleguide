@@ -7,27 +7,26 @@
 * [Terminology](#terminology)
 * [Style](#style)
     * [file organization](#file-organization)
-    * [Comments](#comments)
-    * [Whitespace](#whitespace)
 * [Concepts](#concepts)
-    * [BEM](#bem-oocss)
-    * [Source Order](#source-order)
+    * [Atomic CSS](#atomic-css)
     * [IDs vs classes](#IDs-vs-classes)
 * [Writing CSS](#writing-css)
-    * [Sass (SCSS)](#sass-scss)
+    * [Preprocessors](#preprocessors)
     * [Units](#units)
     * [Shorthand](#shorthand)
     * [JS Hooks](#js-hooks)
     * [Layout](#layout)
+    * [Linters](#linters)
 
 ---
 
 ## Summary
 
-1. Use the BEM (Block Element Modifier) methodology
-2. Find common patterns in your code and abstract them so they can become reusable components.
-3. Think about how you can write more clean, efficient and modular components
-4. Be critical of your code and the code of others. Try and learn/recognize 'code smells' and refactor them.
+1. Use atomic classes and move the repetition to HTML, easier to debug and maintain.
+2. Every class should only do one thing only.
+3. Don't nest, keep your CSS flat.
+4. Don't use IDs.
+5. Be critical of your code and the code of others. Try and learn/recognize 'code smells' and refactor them.
 
 ## Terminology
 
@@ -43,15 +42,11 @@ A CSS rule
 
 ## Style
 
-* Use 4 spaces for indentation.
-* Avoid using IDs always use Classes, cause they are reusable & have lower specificity.
+* Use 2 spaces for indentation.
+* Avoid using IDs always use Classes, because they are reusable & have lower specificity.
 * Multi-line.
-* Hyphens or Underscores. _(check [BEM](#bem-oocss))_
 * Always include the final semi-colon in a ruleset.
-* Always try to abstract patterns as much as possible to write less code & make your code easier to maintain & more reusable.
-* Avoid over qualified selectors like this `div.something {}` it should be `.something {}`.
-* Avoid chaining classes `.box.red` & use multiple classes extension on the element instead _More in OOCSS & BEM_
-* If you are not supporting IE7 always use `box-sizing: border-box`.
+* Avoid nesting.
 * Don't use `!important`, use the cascade as much as you can.
 
 ### File organization
@@ -63,57 +58,6 @@ Utilize the power of preprocessors & always break down your code into separate f
 ```scss
 @import '_component1';
 @import '_component2';
-```
-
-### Comments
-
-Always write useful comments for anything you write or you think it might confuse you _believe me it happens_ or your team members.
-
-When using Sass, always use the Sass comment format `//` instead of the CSS one `/* */` unless specified otherwise.
-
-Comments are for you & your team, make sure in your build process all the comments are stripped out.
-
-There are 4 comment format used.
-
-**Block/Section Comment**
-
-Mainly used at the top of the file with the name _Always in uppercase_ & a description of the file. Also can be used within a single file between variations.
-
-    /*=========================================================================
-     NAME OF THE COMPONENT
-
-     Description:
-     Lorem ipsum dolor sit amet
-
-     MARKUP:
-        <ul class="component component--modifier">
-            <li class="component__child"> Something </li>
-            <li class="component__child"> Something </li>
-        </ul>
-
-     Classes:
-        .component - brief description
-        .component--modifier - brief description
-        .component__child - brief description
-
-    =========================================================================*?
-
-
-**Sub-section Comment**
-
-Used to differentiate between different sections in one file, with only the title of the sub-section _always in uppercase_
-
-    // SUB SECTION
-    // ------------------------------------------------------------------------
-
-**Inline Comment**
-
-Which the simple form of comments used for describing hacks, techniques in the code itself.
-
-```scss
-.class {
-    overflow: hidden; // Clearing floats
-}
 ```
 
 ### Whitespace
@@ -128,121 +72,19 @@ Which the simple form of comments used for describing hacks, techniques in the c
 
 1 Carriage return between a comment & a rule.
 
-```scss
-// SECTION COMMENT
-------------------------------
-
-.selector {
-
-}
-```
-
-or
-
-```scss
-/*=============================
- BLOCK COMMENT
-=============================*/
-
-.selector {
-
-}
-```
-
-3 Carriage return between each rule
-
-```scss
-.selector {
-    // code
-}
-
-
-
-.selector {
-    // code
-}
-```
-
-5 Carriage returns between each section (i.e. buttons main styles & primary buttons styling).
-
-```scss
-/*=================
- BUTTONS
-=================*/
-
-.selector {
-    // code
-}
-
-
-
-
-
-// PRIMARY BUTTONS
---------------------
-
-.selector {
-    // code
-}
-```
-
 ---
 
 ## Concepts
 
-### BEM
-
-BEM _Block, Element, Modifier_ is an OOCSS Methodology that helps to keep your component as modular, fixable & maintainable as possible.
-
-Some posts that will help understand BEM:
+### Atomic CSS
+Some posts that will help understand:
 - [About HTML semantics and front-end architecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
-- [Getting your head around BEM syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
+- [Functional Programming, CSS, and your sanity](http://www.jon.gold/2015/07/functional-css/)
+- [Building and shipping functional CSS](https://blog.colepeters.com/building-and-shipping-functional-css/)
 - [Code smells in CSS](http://csswizardry.com/2012/11/code-smells-in-css/)
 - [Using more classes in your HTML](http://csswizardry.com/2012/10/a-classless-class-on-using-more-classes-in-your-html/)
 - [CSS selector intent](http://csswizardry.com/2012/07/shoot-to-kill-css-selector-intent/)
-
-#### Some points to keep in mind when using BEM
-
-- Components shouldn't be tightly coupled to their placement in the layout.
-- Avoid setting dimensions `width`, `height` on the component, a component should fit inside the space which it's placed.
-- Don't leave anything for the chance, make sure your selectors are specific as they need to be. so instead of doing `ul li` use class `.nav-item` on the `<li>` & target it with just `.nav-item`
-
-#### The BEM naming convention I'm using:
-| Name                     | Class                           |
-| -------------------------| --------------------------------|
-| Block _Componenet_ class | `.<prefix>-component`           |
-| Element _Child_ class    | `.<prefix>-component__child`    |
-| Modifier class           | `.<prefix>-component--modifier` |
-
-
-To learn more about the `<prefix>` read [Global scope, Namespacing & CSS](http://gabri.me/2013/08/global-scope-namespacing-css/).
-
-Example:
-
-```html
-<ul class="p-nav p-nav--large">
-    <li class="p-nav__item">Menu item</li>
-    <li class="p-nav__item">Menu item</li>
-    <li class="p-nav__item">Menu item</li>
-    <li class="p-nav__item">Menu item</li>
-    <li class="p-nav__item">Menu item</li>
-    <li class="p-nav__item">Menu item</li>
-</ul>
-```
-
-You can also have block inside block
-```html
-<div class="p-article">
-    <p class="p-article__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, officia, dolores, modi dolorem rem hic vero quis animi fugiat consectetur facilis doloremque velit eum provident at enim ex quibusdam ut.</p>
-
-    <div class="p-badge">
-        <a href="#" class="p-badge__link">Some link</a>
-    </div>
-</div>
-```
-
-### Source Order
-Since we are using multiple files & using an OOCSS methodology to write CSS we should use the source order in our advantage & only extend what we are inheriting without overriding much of the CSS.
+- [Global scope, Namespacing & CSS](http://gabri.me/2013/08/global-scope-namespacing-css/).
 
 ### Classes vs IDs
 
@@ -257,32 +99,19 @@ So there is no point actually to prefer IDs over Classes when writing CSS.
 
 ## Writing CSS
 
-### Sass (SCSS)
+### Preprocessors
 
-I always try to keep my CSS flat _less specificity_ & relay more on the cascade. But if you need to nest CSS, maximum nest 2 levels _exceptions for Pseudo elements/classes_
+I've used all of them, but I prefer PostCSS. It gives me control over the features that I can use and it works well with the npm/node workflow.
+
+I always try to keep my CSS flat _less specificity_. Exceptions for nesting are Pseudo elements/classes and **I Don't use `mixins`**. They can lead to convoluted code that's hard to debug or maintain.
 
 ```scss
-.p-component {
-    display: inline;
+.button {
+    color: red;
 
-    .p-component__child {
-        color: red;
-
-        &:hover {
-            color: green;
-        }
+    &:hover {
+        color: green;
     }
-}
-```
-
-`@includes` should always be on top & followed by 1 Carriage return.
-
-```scss
-.selector {
-    @include mixin1();
-    @include mixin2();
-
-    display: block;
 }
 ```
 
@@ -300,13 +129,13 @@ Shorthands are bad for extending components, in general I don't use them & here 
 Let's imagine that we have a component that we want to extend it to maybe have a different background & padding.
 
 ```scss
-.p-component {
+.component {
     background: #ccc url(../images/pattern.png) no-repeat 0 0;
     padding: 0 .5em;
 }
 
 
-.p-component--green {
+.component--green {
     background: green;
     padding: .5em .5em;
 }
@@ -315,7 +144,7 @@ Let's imagine that we have a component that we want to extend it to maybe have a
 **This is not right** now this modifier class is actually overriding the main component class & not extending it. _We are overriding the pattern image & padding too_ A better way would be like this.
 
 ```scss
-.p-component {
+.component {
     background-color: #ccc;
     background-image: url(../images/pattern.png);
     background-repeat: no-repeat;
@@ -324,14 +153,14 @@ Let's imagine that we have a component that we want to extend it to maybe have a
 }
 
 
-.p-component--green {
+.component--green {
     background-color: green;
     padding-top: .5em;
     padding-bottom: .5em;
 }
 ```
 
-Yes, more lines but more explicit, understandable & maintainable.
+Yes, more lines but more explicit, understandable & maintainable. BTW, atomic CSS fixes this issue by removing the duplication from your code and encouraging composition over overriding.
 
 ### JS Hooks
 
@@ -345,3 +174,8 @@ Yes, more lines but more explicit, understandable & maintainable.
 
 ### Layout
 **General rule:** Layouts would be handled by the grid a component shouldn't have a `width` set on it.
+
+
+### Linters
+
+I use [stylelint](https://github.com/stylelint/stylelint)
